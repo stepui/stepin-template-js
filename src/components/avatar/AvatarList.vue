@@ -1,5 +1,4 @@
 <script setup>
-  import {} from 'vue';
   defineProps({
     source: Array,
     size: {

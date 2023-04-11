@@ -1,9 +1,7 @@
 <script setup>
   import { getBase64 } from '@/utils/file';
-  import {} from 'ant-design-vue';
   import { reactive, ref } from 'vue';
   import dayjs from 'dayjs';
-  import {} from 'dayjs';
   import { EditFilled } from '@ant-design/icons-vue';
   const columns = [
     {

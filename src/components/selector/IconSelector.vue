@@ -1,7 +1,6 @@
 <script setup>
   import { ref, computed } from 'vue';
   import GridList from '../list/GridList.vue';
-  import {} from 'ant-design-vue';
   import { debounce } from 'lodash';
   import useModelValue from '@/utils/useModelValue';
   const props = defineProps({

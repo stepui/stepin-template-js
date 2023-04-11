@@ -3,7 +3,6 @@
   // @ts-ignore
   import * as icons from '@ant-design/icons-vue/es/icons';
   import { reactive, ref, watch, computed, onMounted } from 'vue';
-  import {} from 'ant-design-vue';
   import { useMenuStore } from '@/store/menu';
   import { storeToRefs } from 'pinia';
   import { useAuthStore } from '@/plugins';

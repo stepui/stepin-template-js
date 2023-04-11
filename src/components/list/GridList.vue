@@ -1,6 +1,5 @@
 <script setup>
   import { ref, computed } from 'vue';
-  import {} from 'ant-design-vue';
   const props = defineProps({
     pagination: { type: [Object, Boolean] },
     column: { type: Number, default: 8 },

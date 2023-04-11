@@ -3,7 +3,6 @@
 </template>
 <script setup>
   import { onBeforeUnmount, onMounted, ref } from 'vue';
-  import {} from 'echarts';
   import * as echarts from 'echarts';
   const container = ref();
   let chart = null;

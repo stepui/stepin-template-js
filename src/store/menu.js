@@ -73,6 +73,7 @@ const toRoutes = (list) => {
 };
 export const useMenuStore = defineStore('menu', () => {
   const menuList = ref([]);
+  const loading = ref(false);
   const { filterMenu } = storeToRefs(useSettingStore());
   const checkMenuPermission = () => {
     if (filterMenu.value) {
@@ -82,16 +83,19 @@ export const useMenuStore = defineStore('menu', () => {
     }
   };
   checkMenuPermission();
-  console.log(filterMenu.value);
   watch(filterMenu, checkMenuPermission);
   async function getMenuList() {
-    return http.request('/menu', 'GET').then((res) => {
-      const { data } = res;
-      menuList.value = data;
-      addRoutes(toRoutes(data));
-      checkMenuPermission();
-      return data;
-    });
+    loading.value = true;
+    return http
+      .request('/menu', 'GET')
+      .then((res) => {
+        const { data } = res;
+        menuList.value = data;
+        addRoutes(toRoutes(data));
+        checkMenuPermission();
+        return data;
+      })
+      .finally(() => (loading.value = false));
   }
   async function addMenu(menu) {
     return http
@@ -120,6 +124,7 @@ export const useMenuStore = defineStore('menu', () => {
       .finally(getMenuList);
   }
   return {
+    loading,
     menuList,
     getMenuList,
     addMenu,

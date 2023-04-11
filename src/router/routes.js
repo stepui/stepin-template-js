@@ -41,10 +41,12 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     name: '404',
+    props: true,
     meta: {
       icon: 'CreditCardOutlined',
       renderMenu: false,
       cacheable: false,
+      _is404Page: true,
     },
     component: () => import('@/pages/Exp404.vue'),
   },
