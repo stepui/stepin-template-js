@@ -18,7 +18,7 @@
 
 English | [简体中文](./README.md)
 
-- 预览地址: https://stepui.github.io
+- 预览地址: https://stepui.gitee.io/stepin-template
 - 使用文档: http://stepui.gitee.io/stepin-template-docs/
 - 常见问题: http://stepui.gitee.io/stepin-template-docs/issue
 - 国内镜像: https://gitee.com/stepui/stepin-template
@@ -36,16 +36,16 @@ English | [简体中文](./README.md)
 | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 ## 环境要求
 
-- node `^16.14.0`
-- yarn `^1.21.1`
-- git `^2.15.0`
+|git|node|yarn|
+|---|----|----|
+|`^2.15.0`|`^16.14.0`|`^1.21.1`|
 
 ## 使用
 
 ### 拉取代码
 
 ```bash
-git clone https://github.com/stepui/stepin-template.git
+git clone https://github.com/stepui/stepin-template-js.git
 ```
 
 ### 安装依赖

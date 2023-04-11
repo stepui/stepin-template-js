@@ -18,7 +18,7 @@
 
 简体中文 | [English](./README-en_US.md)
 
-- 预览地址: https://stepui.github.io
+- 预览地址: https://stepui.gitee.io/stepin-template
 - 使用文档: http://stepui.gitee.io/stepin-template-docs/
 - 常见问题: http://stepui.gitee.io/stepin-template-docs/issue
 - 国内镜像: https://gitee.com/stepui/stepin-template
@@ -38,14 +38,14 @@
 
 |git|node|yarn|
 |---|----|----|
-|`^16.14.0`|`^1.21.1`|`^2.15.0`|
+|`^2.15.0`|`^16.14.0`|`^1.21.1`|
 
 ## 使用
 
 ### 拉取代码
 
 ```sh
-git clone https://github.com/stepui/stepin-template.git
+git clone https://github.com/stepui/stepin-template-js.git
 ```
 
 ### 安装依赖
