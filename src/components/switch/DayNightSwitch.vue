@@ -1,10 +1,12 @@
 <script setup>
-  import { watch } from 'vue';
+  import { watch, computed } from 'vue';
   import useModelValue from '@/utils/useModelValue';
-  import { configTheme } from '@/theme';
-  import { useSettingStore, storeToRefs } from '@/store';
+  import cloneDeep from 'lodash/cloneDeep';
+  import { storeToRefs } from 'pinia';
+  import { useThemeStore, ThemeProvider } from 'stepin/es/theme-provider';
   const props = defineProps({
     value: { type: String },
+    nightColor: { type: String, default: '#1D1D1F' },
   });
   const emit = defineEmits();
   const { value: _value } = useModelValue(
@@ -12,50 +14,52 @@
     (val) => emit('update:value', val),
     'day'
   );
-  const valeToggle = {
+  const switcher = {
     day: 'night',
     night: 'day',
   };
-  function toggle() {
-    _value.value = valeToggle[_value.value];
-  }
-  const settingStore = useSettingStore();
-  const { theme } = storeToRefs(settingStore);
-  const { setTheme } = settingStore;
-  let cachedTheme = theme.value;
-  watch(theme, (val) => {
-    if (val !== 'night') {
-      cachedTheme = val;
-      _value.value = 'day';
+  const { theme } = storeToRefs(useThemeStore());
+  // 监听主题色变换，更新缓存
+  let cachedMiddleColors = cloneDeep(theme.value.color.middle);
+  watch(
+    theme,
+    (val) => {
+      if (val.color.middle['bg-base'] !== props.nightColor) {
+        cachedMiddleColors = cloneDeep(val.color.middle);
+        _value.value = 'day';
+      } else {
+        _value.value = 'night';
+      }
+    },
+    { deep: true }
+  );
+  // 主题颜色配置
+  const colorCfg = computed(() => {
+    if (_value.value === 'day') {
+      return { middle: cachedMiddleColors };
     }
-  });
-  watch(_value, (val) => {
-    if (val === 'day') {
-      setTheme(cachedTheme);
-      configTheme(cachedTheme);
-    } else {
-      setTheme('night');
-      configTheme('night');
-    }
+    return { middle: { 'bg-base': props.nightColor } };
   });
 </script>
 <template>
-  <div
-    @click="toggle"
-    class="bg-fill-2 day-night-switch hover:border-border relative border-border-2 text-lg rounded-full border border-solid flex items-center"
-  >
+  <ThemeProvider is-root :color="colorCfg">
     <div
-      :class="`spot transition-[left] duration-300 h-full absolute rounded-full bg-container ${_value}`"
-    ></div>
-    <IconFont
-      :class="`day-night-switch-item ${_value === 'day' ? 'checked' : ''}`"
-      name="icon-sun"
-    />
-    <IconFont
-      :class="`day-night-switch-item ${_value === 'night' ? 'checked' : ''}`"
-      name="icon-moono"
-    />
-  </div>
+      @click="() => (_value = switcher[_value])"
+      class="bg-fill-2 day-night-switch hover:border-border relative border-border-2 text-lg rounded-full border border-solid flex items-center"
+    >
+      <div
+        :class="`spot transition-[left] duration-300 h-full absolute rounded-full bg-container ${_value}`"
+      ></div>
+      <IconFont
+        :class="`day-night-switch-item ${_value === 'day' ? 'checked' : ''}`"
+        name="icon-sun"
+      />
+      <IconFont
+        :class="`day-night-switch-item ${_value === 'night' ? 'checked' : ''}`"
+        name="icon-moono"
+      />
+    </div>
+  </ThemeProvider>
 </template>
 <style scoped lang="less">
   .day-night-switch {
