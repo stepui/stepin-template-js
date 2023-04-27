@@ -69,15 +69,37 @@
 系统主题色可以自由定义，它主要用一些组件及功能性文本上。点击下面的拾色器，可以看到面板底部内置的推荐颜色：
 <ColorPicker v-model="color" />
 
-你可以使用用 `setPrimaryColor` api 来设置系统主题色
+使用 `setPrimaryColor` 设置主题色
 
-```ts
-...
+```vue
+// 通过 setPrimaryColor api 配置
+<script lang="ts" setup>
 import useThemeStore from 'stepin/es/theme-editor/store';
 
 const { setPrimaryColor } = useThemeStore();
 setPrimaryColor({DEFAULT: '#3B82F6'});
-...
+</script>
+// 或者通过 ThemeProvider 组件配置
+<template>
+  <ThemeProvider :color="{ primary: { DEFAULT: '#3B82F6'}}">
+    <stepin-view ...>
+      ...
+    </stepin-view>
+  </ThemeProvider>
+</template>
+```
+或者使用 ThemeProvider 组件配置主题：
+```vue
+<template>
+  <ThemeProvider :color="{ primary: { DEFAULT: '#3B82F6'}}">
+    <stepin-view ...>
+      ...
+    </stepin-view>
+  </ThemeProvider>
+</template>
+<script lang="ts" setup>
+  import { ThemeProvider } from 'stepin/es/theme-provider'
+</script>
 ```
 根据主色，系统还会自动生成一系列衍生色，方便使用：
 <div style="display: flex; algin-items:center;">
@@ -106,7 +128,6 @@ setPrimaryColor({
   'text-active': string;        // 主色衍生文本激活色
 });
 ```
-
 <CodeSandbox
   theme="dark"
   :code="code"
