@@ -1,5 +1,5 @@
 <script setup>
-  defineProps();
+  defineProps({ name: String });
 </script>
 <template>
   <span role="img" style="line-height: 1">
