@@ -36,7 +36,7 @@
 | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 ## 环境要求
 
-|git|node|yarn|
+|node|yarn|git|
 |---|----|----|
 |`^2.15.0`|`^16.14.0`|`^1.21.1`|
 
