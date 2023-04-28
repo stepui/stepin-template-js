@@ -1,5 +1,5 @@
 # ThemeProvider
-我们提供了主题配置组件 `ThemeProvider`，方便您进行主题配置。
+我们提供了主题配置组件 `ThemeProvider`，可以很方便的对主题进行配置。
 
 ## 使用示例
 
