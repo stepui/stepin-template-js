@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-  import { ComponentPublicInstance, onMounted, reactive, ref } from 'vue';
+  import { onMounted, reactive, ref } from 'vue';
   import Guider from '@/components/guider';
   import { useAuthStore } from '@/plugins';
   const authStore = useAuthStore();
