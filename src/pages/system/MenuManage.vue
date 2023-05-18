@@ -234,6 +234,7 @@
 <template>
   <div class="authority">
     <a-table
+      rowKey="id"
       :columns="columns"
       :dataSource="menuList"
       :pagination="{ pageSize: 20, current: 1, total: 10 }"
