@@ -109,6 +109,13 @@ function mergeRoutes(target, source) {
       return target ?? source;
     }
     const resultMap = new Map();
+    // 保证新路由数据顺序
+    for (const key of source.keys()) {
+      resultMap.set(key, void 0);
+    }
+    for (const key of target.keys()) {
+      resultMap.set(key, void 0);
+    }
     target.forEach((v, k) => {
       resultMap.set(k, v);
     });
