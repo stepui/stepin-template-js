@@ -6,7 +6,7 @@
   import { useThemeStore, ThemeProvider } from 'stepin/es/theme-provider';
   const props = defineProps({
     value: { type: String },
-    nightColor: { type: String, default: '#1D1D1F' },
+    nightColor: { type: String, default: '#1D1D1D' },
   });
   const emit = defineEmits();
   const { value: _value } = useModelValue(

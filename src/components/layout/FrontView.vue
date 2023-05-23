@@ -60,6 +60,7 @@
       middle: { 'bg-base': '#003f8c' },
       primary: { DEFAULT: '#1896ff' },
     }"
+    :autoAdapt="false"
   >
     <div class="front-view flex flex-col">
       <div class="text-text flex-1">
