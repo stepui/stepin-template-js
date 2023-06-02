@@ -39,6 +39,15 @@ const routes = [
     ],
   },
   {
+    path: '/403',
+    name: '403',
+    props: true,
+    meta: {
+      renderMenu: false,
+    },
+    component: () => import('@/pages/Exp403.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: '404',
     props: true,
