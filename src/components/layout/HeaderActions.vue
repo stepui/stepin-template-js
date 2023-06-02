@@ -5,7 +5,7 @@
   import DayNightSwitch from '@/components/switch/DayNightSwitch.vue';
   import { BellOutlined } from '@ant-design/icons-vue';
   import Fullscreen from '../fullscreen/Fullscreen.vue';
-  defineEmits();
+  defineEmits(['showSetting']);
   const noticeList = reactive([
     {
       title: '消息',

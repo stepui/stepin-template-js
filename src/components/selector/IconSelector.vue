@@ -31,7 +31,7 @@
       default: [],
     },
   });
-  const emit = defineEmits();
+  const emit = defineEmits(['update:value']);
   // 分页
   const pageBase = {
     pageSize: props.column * 5,

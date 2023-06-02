@@ -1,6 +1,6 @@
 <script setup>
   import { computed, nextTick, ref, toRefs } from 'vue';
-  const emit = defineEmits();
+  const emit = defineEmits(['update:edit', 'update:value', 'pressEnter']);
   const props = defineProps({
     value: [String, Number, Boolean, Object],
     edit: {

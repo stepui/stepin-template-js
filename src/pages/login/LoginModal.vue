@@ -22,7 +22,7 @@
   });
   const accountStore = useAccountStore();
   const route = useRoute();
-  const emit = defineEmits();
+  const emit = defineEmits(['update:visible']);
   const _visible = computed({
     get() {
       return !!sVisible.value && !props.unless?.includes(route.fullPath);

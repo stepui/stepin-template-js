@@ -8,7 +8,7 @@
     value: { type: String },
     nightColor: { type: String, default: '#1D1D1D' },
   });
-  const emit = defineEmits();
+  const emit = defineEmits(['update:value']);
   const { value: _value } = useModelValue(
     () => props.value,
     (val) => emit('update:value', val),

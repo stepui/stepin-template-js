@@ -53,7 +53,7 @@
   });
   // 事件
   // defineEmits(['close', 'update:show', 'update:current'])
-  const emit = defineEmits();
+  const emit = defineEmits(['close', 'update:show', 'update:current']);
   // 目标 html 元素
   const targetEl = computed(() => {
     const _el = props.current ?? props.options[index.value]?.target;

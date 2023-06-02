@@ -8,7 +8,7 @@
   const prop = defineProps({
     target: { type: [String, Object], required: true },
   });
-  const emit = defineEmits();
+  const emit = defineEmits(['change']);
   const { enterFullScreen, exitFullscreen, isEnter } = useFullScreen(
     prop.target
   );

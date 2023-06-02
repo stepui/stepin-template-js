@@ -69,7 +69,7 @@
     username: undefined,
     password: undefined,
   });
-  const emit = defineEmits();
+  const emit = defineEmits(['success', 'failure']);
   const accountStore = useAccountStore();
   function login(params) {
     loading.value = true;
