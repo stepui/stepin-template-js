@@ -77,7 +77,6 @@ export const useMenuStore = defineStore('menu', () => {
   const loading = ref(false);
   const { filterMenu } = storeToRefs(useSettingStore());
   const checkMenuPermission = () => {
-    console.log('------');
     if (filterMenu.value) {
       doMenuFilter(router.options.routes);
       console.log(router.options.routes);
